@@ -11,11 +11,11 @@ namespace BO.Models
         public City()
         {
             this.Countries = new List<SelectListItem>();
-            this.Cities = new List<SelectListItem>();
+            this.Citiess = new List<SelectListItem>();
 
         }
         public List<SelectListItem>Countries { get; set; }
-        public List<SelectListItem> Cities { get; set; }
+        public List<SelectListItem> Citiess { get; set; }
 
         public string country_name { get; set; }
         public string city_name { get; set; }
