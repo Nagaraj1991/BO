@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "PendingRequest";
+    Layout = "~/Views/Shared/_Layout_master.cshtml";
+}
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+</style>
+<div class="page-container">
+    <!--/content-inner-->
+    <div class="left-content">
+        <div class="inner-content">
+            <div class="header-section">
+                <!-- top_bg -->
+                <div class="top_bg">
+
+                    <div class="header_top">
+                        <div class="top_right">
+                            <ul>
+                                <li><a href="#">help</a></li>|
+                                <li><a href="#">Contact</a></li>|
+                                <li><a href="#">Delivery information</a></li>
+                            </ul>
+                        </div>
+                        <div class="top_left">
+                            <h2><span></span> Call us : 032 2352 782</h2>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+                <!-- /top_bg -->
+            </div>
+            <div class="content">
+                <div class="area">
+                    <div class="col-md-12" >
+                        <div class="forms">
+                            <div class="form-grids widget-shadow" data-example-id="basic-forms">
+                                <div class="form-title">
+                                    <h4>Pending Vendor List</h4>
+                                </div>
+                                <div class="form-body">
+                                    <form>
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <th>Restaurant Id</th>
+                                                <th>Restaurant Name</th>
+                                                <th>Restaurant City</th>
+                                                <th>Properiator Name</th>
+                                            </tr>
+
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <input style="margin-left:50%;visibility:hidden;" type="text" id="txt_id" />
+</div>
+
+
+

@@ -1,0 +1,66 @@
+﻿@model BO.Models.Country   
+@{
+    ViewBag.Title = "AreaMaster";
+    Layout = "~/Views/Shared/_Layout_master.cshtml";
+}
+
+<div class="page-container">
+    <!--/content-inner-->
+    <div class="left-content">
+        <div class="inner-content">
+            <div class="header-section">
+                <!-- top_bg -->
+                <div class="top_bg">
+
+                    <div class="header_top">
+                        <div class="top_right">
+                            <ul>
+                                <li><a href="#">help</a></li>|
+                                <li><a href="#">Contact</a></li>|
+                                <li><a href="#">Delivery information</a></li>
+                            </ul>
+                        </div>
+                        <div class="top_left">
+                            <h2><span></span> Call us : 032 2352 782</h2>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+                <!-- /top_bg -->
+            </div>
+            <div class="content">
+                <div class="area">
+                    <div class="col-md-6" style="margin-left:25%;">
+                        <div class="forms">
+                            <div class="form-grids widget-shadow">
+                                <div class="form-title">
+                                    <h4>Area Master</h4>
+                                </div>
+                                <div class="form-body">
+                                    @using (Html.BeginForm("CityMaster", "Home", FormMethod.Post))
+                                    {
+                                        <div class="form-group"> Country Name @Html.DropDownListFor(m => m.countryname, Model.CountryModel, "Please Select", new { @class = "form-control" }) </div>
+                                        <div class="form-group"> <label for="exampleInputEmail1">City Name</label> <select class="form-control" id="txt_ciname" placeholder="City Name"></select> </div>
+                                        <div class="form-group"> <label for="exampleInputEmail1">Area Name</label> <input type="text" class="form-control" id="txt_aname" placeholder="Area Name" /> </div>
+                                        <button type="submit" class="btn btn-default">Submit</button>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <input style="margin-left:50%;visibility:hidden;" type="text" id="txt_id" />
+</div>
+
+
