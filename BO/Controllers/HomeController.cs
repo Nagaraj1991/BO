@@ -16,7 +16,7 @@ namespace BO.Controllers
         public ActionResult Index()
         {
             return View();
-            //hai
+            
         }
 
 
