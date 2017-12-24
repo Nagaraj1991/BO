@@ -148,20 +148,20 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="city_model.Context.cs">
+    <Compile Include="City_Master.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>city_model.Context.tt</DependentUpon>
+      <DependentUpon>City_Master.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="city_model.cs">
+    <Compile Include="City_Master.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>city_model.tt</DependentUpon>
+      <DependentUpon>City_Master.tt</DependentUpon>
     </Compile>
-    <Compile Include="city_model.Designer.cs">
+    <Compile Include="City_Master.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>city_model.edmx</DependentUpon>
+      <DependentUpon>City_Master.edmx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -174,25 +174,25 @@
     <Compile Include="Models\master_class.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tbl_area.cs">
-      <DependentUpon>city_model.tt</DependentUpon>
+      <DependentUpon>City_Master.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_city.cs">
-      <DependentUpon>city_model.tt</DependentUpon>
+      <DependentUpon>City_Master.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_country.cs">
-      <DependentUpon>city_model.tt</DependentUpon>
+      <DependentUpon>City_Master.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="city_model.Context.tt">
+    <Content Include="City_Master.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>city_model.Context.cs</LastGenOutput>
-      <DependentUpon>city_model.edmx</DependentUpon>
+      <DependentUpon>City_Master.edmx</DependentUpon>
+      <LastGenOutput>City_Master.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="city_model.tt">
+    <Content Include="City_Master.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>city_model.edmx</DependentUpon>
-      <LastGenOutput>city_model.cs</LastGenOutput>
+      <DependentUpon>City_Master.edmx</DependentUpon>
+      <LastGenOutput>City_Master.cs</LastGenOutput>
     </Content>
     <Content Include="Content\atlas.css" />
     <Content Include="Content\bg11.jpg" />
@@ -229,12 +229,12 @@
     <Content Include="fonts\Linearicons-Free.ttf" />
     <Content Include="fonts\Linearicons-Free.woff" />
     <Content Include="fonts\Raleway-Regular.ttf" />
-    <EntityDeploy Include="city_model.edmx">
+    <EntityDeploy Include="City_Master.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>city_model.Designer.cs</LastGenOutput>
+      <LastGenOutput>City_Master.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="city_model.edmx.diagram">
-      <DependentUpon>city_model.edmx</DependentUpon>
+    <Content Include="City_Master.edmx.diagram">
+      <DependentUpon>City_Master.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cbpFWTabs.js" />

@@ -71,7 +71,7 @@
           <Property Name="country_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="cur_pair" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="Restaurent_BOEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Restaurent_BOEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tbl_area" EntityType="Self.tbl_area" />
           <EntitySet Name="tbl_city" EntityType="Self.tbl_city" />
           <EntitySet Name="tbl_country" EntityType="Self.tbl_country" />
@@ -81,7 +81,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Restaurent_BOModelStoreContainer" CdmEntityContainer="Restaurent_BOEntities">
+        <EntityContainerMapping StorageEntityContainer="Restaurent_BOModelStoreContainer" CdmEntityContainer="Restaurent_BOEntities1">
           <EntitySetMapping Name="tbl_area">
             <EntityTypeMapping TypeName="Restaurent_BOModel.tbl_area">
               <MappingFragment StoreEntitySet="tbl_area">

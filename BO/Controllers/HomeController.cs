@@ -18,7 +18,20 @@ namespace BO.Controllers
             return View();
             
         }
+        [HttpPost]
+        public ActionResult Index(string Username, string password)
+        {
+            if (Username == "1" && password == "1")
+            {
+               return Redirect("/Home/Dashboard");
+            }
+            else
+            {
+                ViewBag.Message = "Worng Password";
+            }
+            return View();
 
+        }
 
         public ActionResult Dashboard()
         {
