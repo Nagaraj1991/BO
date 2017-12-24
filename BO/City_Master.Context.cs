@@ -13,10 +13,10 @@ namespace BO
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Restaurent_BOEntities : DbContext
+    public partial class Restaurent_BOEntities1 : DbContext
     {
-        public Restaurent_BOEntities()
-            : base("name=Restaurent_BOEntities")
+        public Restaurent_BOEntities1()
+            : base("name=Restaurent_BOEntities1")
         {
         }
     

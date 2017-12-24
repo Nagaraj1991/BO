@@ -18,17 +18,15 @@
 </head>
 <body>
     <div class="w3ls-main">
-        <div class="wthree-heading">
-         
+        <div style="color:white;text-align:center;padding:10px;">
+            <h1>Backoffice Login</h1>
         </div>
+        <br /><br />
         <div class="wthree-container">
+
             <div class="wthree-form">
-                <div class="agileits-2">
-                    <h2>Backoffice Login</h2>
-                </div>
  
-                <form method="post" action="@Url.Action("Dashboard", "Home")">
- 
+                <form method="post">
                     <div class="w3-user">
                         <span><i class="fa fa-user-o" aria-hidden="true"></i></span>
                         <input type="text" name="Username" placeholder="Username" required="">
@@ -38,20 +36,22 @@
                         <span><i class="fa fa-key" aria-hidden="true"></i></span>
                         <input type="password" name="password" placeholder="Password" required="">
                     </div>
-                    <div class="clear"></div>
-                    <!--<div class="w3l">
-                        <span><a href="#">Forgot Password ?</a></span>
-                    </div>-->
+
  
                     <div class="clear"></div>
                     <div class="w3l-submit">
                         <input type="submit" value="login"   >
                     </div>
- 
-                    <div class="clear"></div>
-   
-                </form>
-       
+                 </form>
+                @if (ViewBag.Message != null)
+                {
+                    <script type="text/javascript">
+                        window.onload = function () {
+                        alert("@ViewBag.Message");
+                    };
+                    </script>
+                }
+                
             </div>
         </div>
     </div>
