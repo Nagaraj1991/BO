@@ -28,7 +28,7 @@ namespace BO.Models
         public DataSet getCity(string CountryName)
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("select city_name from tbl_city where country_name='" + CountryName + "'");
+            SqlCommand cmd = new SqlCommand("select city_name from tbl_city where country_name='" + CountryName + "'",con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -39,7 +39,7 @@ namespace BO.Models
         public DataSet getArea(string CityName)
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("select city_name from tbl_area where country_name='" + CityName + "'");
+            SqlCommand cmd = new SqlCommand("select area_name from tbl_area where country_name='" + CityName + "'",con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);

@@ -13,6 +13,8 @@ namespace BO.Controllers
     public class HomeController : Controller
     {
         string cname1;
+        BO.Models.city_db cd = new BO.Models.city_db();
+
         public ActionResult Index()
         {
             return View();
@@ -33,6 +35,64 @@ namespace BO.Controllers
 
         }
 
+        public void country_bind()
+        {
+            DataSet ds = cd.getCountry();
+            List<SelectListItem> coutrylist = new List<SelectListItem>();
+
+            foreach (DataRow dr in ds.Tables[0].Rows)
+
+            {
+
+                coutrylist.Add(new SelectListItem { Text = dr["country_name"].ToString(), Value = dr["country_name"].ToString() });
+
+            }
+
+            ViewBag.Country = coutrylist;
+
+        }
+
+        public JsonResult city_Bind(string country_id)
+
+        {
+
+            DataSet ds = cd.getCity(country_id);
+
+            List<SelectListItem> citylist = new List<SelectListItem>();
+
+            foreach (DataRow dr in ds.Tables[0].Rows)
+
+            {
+
+                citylist.Add(new SelectListItem { Text = dr["city_name"].ToString(), Value = dr["city_name"].ToString() });
+
+            }
+
+            return Json(citylist, JsonRequestBehavior.AllowGet);
+
+        }
+
+        public JsonResult Area_Bind(string city_id)
+
+        {
+
+            DataSet ds = cd.getArea(city_id);
+
+            List<SelectListItem> arealist = new List<SelectListItem>();
+
+            foreach (DataRow dr in ds.Tables[0].Rows)
+
+            {
+
+                arealist.Add(new SelectListItem { Text = dr["area_name"].ToString(), Value = dr["area_name"].ToString() });
+
+            }
+
+            return Json(arealist, JsonRequestBehavior.AllowGet);
+
+        }
+
+
         public ActionResult Dashboard()
         {
 
@@ -40,9 +100,8 @@ namespace BO.Controllers
         }
         public ActionResult AreaMaster()
         {
-            Country cc = new Country();
-            cc.CountryModel = PopulateCountry();
-            return View(cc);
+            country_bind();
+            return View();
             
         }
         public ActionResult AddVendor() 
