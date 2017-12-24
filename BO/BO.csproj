@@ -169,6 +169,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\city_db.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\master_class.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
