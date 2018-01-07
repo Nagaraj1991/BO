@@ -165,12 +165,28 @@
     </Compile>
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Country_List.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Country_List.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Country_List.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Country_List.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Country_List.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Country_List.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\city_db.cs" />
     <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\Country_list.cs" />
     <Compile Include="Models\master_class.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tbl_area.cs">
@@ -180,7 +196,7 @@
       <DependentUpon>City_Master.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_country.cs">
-      <DependentUpon>City_Master.tt</DependentUpon>
+      <DependentUpon>Country_List.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -208,12 +224,23 @@
     <Content Include="Content\site.min.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\style1.css" />
+    <Content Include="Country_List.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Country_List.edmx</DependentUpon>
+      <LastGenOutput>Country_List.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Country_List.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Country_List.edmx</DependentUpon>
+      <LastGenOutput>Country_List.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\amcharts.js" />
+    <Content Include="Scripts\ASPSnippets_Pager.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -235,6 +262,13 @@
     </EntityDeploy>
     <Content Include="City_Master.edmx.diagram">
       <DependentUpon>City_Master.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Country_List.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Country_List.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Country_List.edmx.diagram">
+      <DependentUpon>Country_List.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cbpFWTabs.js" />

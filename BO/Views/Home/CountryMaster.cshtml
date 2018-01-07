@@ -1,8 +1,21 @@
-﻿@model BO.Models.master_class
+﻿@model BO.Models.Country_list
+
 @{
     ViewBag.Title = "CountryMaster";
     Layout = "~/Views/Shared/_Layout_master.cshtml";
 }
+<style>
+    table, td, th {
+        border: 1px solid green;
+        border-collapse: collapse;
+    }
+
+    th {
+        border: 1px solid black;
+        background-color: green;
+        color: white;
+    }
+</style>
 
 <div class="page-container">
     <!--/content-inner-->
@@ -45,7 +58,19 @@
                                         <div class="form-group"> Currency Pair <input type="text" name="cop" id="cop" class="form-control" /></div>
                                         <button type="submit" class="btn btn-default">Submit</button>
                                     }
-                                        
+                                    @using (@Html.BeginForm("CountryMaster", "Home"))
+            {
+                var grid = new WebGrid(Model.Country_lists, canSort: false);
+
+                                        <div>
+                                            @grid.GetHtml(columns:
+                                grid.Columns
+                                (
+                                    grid.Column("country_id", "Country ID"),
+                                    grid.Column("country_name", "Country Name")
+                                ), mode: WebGridPagerModes.Numeric)
+                                        </div>
+                                    } 
                                     
                                 </div>
                             </div>
@@ -69,6 +94,7 @@
                 </div>
 
             </div>
+            
         </div>
         
     </div>

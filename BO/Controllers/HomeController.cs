@@ -51,7 +51,7 @@ namespace BO.Controllers
             ViewBag.Country = coutrylist;
 
         }
-
+        
         public JsonResult city_Bind(string country_id)
 
         {
@@ -123,8 +123,27 @@ namespace BO.Controllers
 
         public ActionResult CountryMaster()
         {
-            
-            return View();
+            Country_list cl = new Country_list();
+            List<Country_Detail> cll = new List<Country_Detail>();
+            cll = getcountry();
+            cl.Country_lists = cll;
+
+            return View(cl);
+        }
+
+        public List<Country_Detail> getcountry()
+        {
+            List<Country_Detail> objStudent = new List<Country_Detail>();
+            /*Create instance of entity model*/
+            Restaurent_BOEntities2 objentity = new Restaurent_BOEntities2();
+            /*Getting data from database for user validation*/
+            var _objuserdetail = (from data in objentity.tbl_country
+                                  select data);
+            foreach (var item in _objuserdetail)
+            {
+                objStudent.Add(new Country_Detail { country_id = item.country_id, country_name = item.country_name });
+            }
+            return objStudent;
         }
 
         [HttpPost]
