@@ -188,6 +188,7 @@
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Country_list.cs" />
     <Compile Include="Models\master_class.cs" />
+    <Compile Include="Models\vendor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tbl_area.cs">
       <DependentUpon>City_Master.tt</DependentUpon>

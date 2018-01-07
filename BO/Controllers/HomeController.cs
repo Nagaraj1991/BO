@@ -106,7 +106,7 @@ namespace BO.Controllers
         }
         public ActionResult AddVendor() 
         {
-
+            country_bind();
             return View();
         }
         public ActionResult PendingRequest()
@@ -162,6 +162,28 @@ namespace BO.Controllers
             cmd.Parameters.AddWithValue("@city_name", cname);
             con.Open();
             ViewData["result"] = cmd.ExecuteNonQuery().ToString();
+            //Country cc = new Country();
+            //cc.CountryModel = PopulateCountry();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AreaMaster(string cname, string countryname,string areaname)
+        {
+            //getcoun();
+            SqlConnection con = null;
+            string result;
+
+
+            con = new SqlConnection(ConfigurationManager.ConnectionStrings["Constring"].ConnectionString);
+            SqlCommand cmd = new SqlCommand("master_crud", con);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@country_name", countryname);
+            cmd.Parameters.AddWithValue("@mode", 13);
+            cmd.Parameters.AddWithValue("@city_name", cname);
+            cmd.Parameters.AddWithValue("@area_name", areaname);
+            con.Open();
+            ViewData["result"] = cmd.ExecuteNonQuery().ToString();
             Country cc = new Country();
             cc.CountryModel = PopulateCountry();
             return View(cc);
@@ -187,7 +209,37 @@ namespace BO.Controllers
             return View();
         }
 
-        
+        [HttpPost]
+        public ActionResult addvendor(string v_name,string v_address,string v_country,string v_city,string v_area,string v_licence,string v_contact,string v_mail,string v_prname,string v_prmail,string v_status)
+        {
+            //ViewData["result"] = cou;
+            SqlConnection con = null;
+            string result;
+
+            con = new SqlConnection(ConfigurationManager.ConnectionStrings["Constring"].ConnectionString);
+            SqlCommand cmd = new SqlCommand("master_crud", con);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@vname", v_name );
+            cmd.Parameters.AddWithValue("@vaddress", v_address);
+            cmd.Parameters.AddWithValue("@vcountry", v_country );
+            cmd.Parameters.AddWithValue("@vcity", v_city);
+            cmd.Parameters.AddWithValue("@varea", v_area );
+            cmd.Parameters.AddWithValue("@vlicence", v_licence);
+            cmd.Parameters.AddWithValue("@contact",v_contact);
+            cmd.Parameters.AddWithValue("@vmail", v_mail);
+            cmd.Parameters.AddWithValue("@vprname", v_prname);
+            cmd.Parameters.AddWithValue("@vprmail", v_prmail);
+            cmd.Parameters.AddWithValue("@vstatus", v_status);
+
+            cmd.Parameters.AddWithValue("@mode", 61);
+            con.Open();
+            ViewData["result"] = cmd.ExecuteNonQuery().ToString();
+            //TempData["msg"] = "<script>alert('Successfully Inserted');</script>";
+            //ViewData["result"] = result.ToString();
+            return View();
+        }
+
+
         private static List<SelectListItem> PopulateCountry()
         {
             List<SelectListItem> item = new List<SelectListItem>();

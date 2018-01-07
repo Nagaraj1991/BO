@@ -1,64 +1,37 @@
-﻿@model BO.Models.Country   
+﻿@model BO.Models.Country     
 @{
     ViewBag.Title = "AreaMaster";
     Layout = "~/Views/Shared/_Layout_master.cshtml";
 }
 
 <script src="~/script/jquery-1.7.1.min.js"></script>
-
 <script>
-    debugger;
-
+//    debugger;
         $(document).ready(function () {
-
             $("#Country").change(function () {
-
                 var id = $(this).val();
-
                 $("#txt_ciname").empty();
-
                 $.get("city_Bind", { country_id: id }, function (data) {
-
                     var v = "<option>---Select---</option>";
-
                     $.each(data, function (i, v1) {
-
                         v += "<option value=" + v1.Value + ">" + v1.Text + "</option>";
-
                     });
-
                     $("#txt_ciname").html(v);
-
                 });
-
             });
-
-
 
             $("#state").change(function () {
-
                 var id = $(this).val();
-
                 $("#city").empty();
-
                 $.get("City_Bind", { state_id: id }, function (data) {
-
                     var v = "<option>---Select---</option>";
-
                     $.each(data, function (i, v1) {
-
                         v += "<option value=" + v1.Value + ">" + v1.Text + "</option>";
-
                     });
-
                     $("#city").html(v);
-
                 });
-
             });
-
         });
-
 </script>
 
 
@@ -97,7 +70,7 @@
                                     <h4>Area Master</h4>
                                 </div>
                                 <div class="form-body">
-                                    @using (Html.BeginForm("CityMaster", "Home", FormMethod.Post))
+                                    @using (Html.BeginForm("AreaMaster", "Home", FormMethod.Post))
                                     {
                                         <div class="form-group"> Country Name @Html.DropDownList("Country", null, "Please Select", new { @class = "form-control" })</div>
                                         <div class="form-group"> <label for="exampleInputEmail1">City Name</label> <select class="form-control" id="txt_ciname" placeholder="City Name"></select> </div>
