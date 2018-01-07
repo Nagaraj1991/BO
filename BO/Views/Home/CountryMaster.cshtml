@@ -15,6 +15,33 @@
         background-color: green;
         color: white;
     }
+    .black_overlay {
+        display: none;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: 1001;
+        -moz-opacity: 0.8;
+        opacity: .80;
+        filter: alpha(opacity=80);
+    }
+
+    .white_content {
+        display: none;
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        width: 50%;
+        height: 50%;
+        padding: 16px;
+        border: 16px solid orange;
+        background-color: white;
+        z-index: 1002;
+        overflow: auto;
+    }
 </style>
 
 <div class="page-container">
@@ -57,20 +84,12 @@
                                         <div class="form-group"> Country Name <input type="text" name="cou" id="cou" class="form-control"/></div>
                                         <div class="form-group"> Currency Pair <input type="text" name="cop" id="cop" class="form-control" /></div>
                                         <button type="submit" class="btn btn-default">Submit</button>
+                                        <p>
+                                             To See Country List<a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Click Here</a>
+                                        </p>
+                                        
                                     }
-                                    @using (@Html.BeginForm("CountryMaster", "Home"))
-            {
-                var grid = new WebGrid(Model.Country_lists, canSort: false);
-
-                                        <div>
-                                            @grid.GetHtml(columns:
-                                grid.Columns
-                                (
-                                    grid.Column("country_id", "Country ID"),
-                                    grid.Column("country_name", "Country Name")
-                                ), mode: WebGridPagerModes.Numeric)
-                                        </div>
-                                    } 
+                                     
                                     
                                 </div>
                             </div>
@@ -92,7 +111,22 @@
                     }
                     <div class="clearfix"></div>
                 </div>
+                <div id="light" class="white_content">
+                    @using (@Html.BeginForm("CountryMaster", "Home"))
+                    {
+                        var grid = new WebGrid(Model.Country_lists, canSort: false);
 
+                        <div>
+                            @grid.GetHtml(columns:
+                                grid.Columns
+                                (
+                                    grid.Column("country_id", "Country ID"),
+                                    grid.Column("country_name", "Country Name")
+                                ), mode: WebGridPagerModes.Numeric)
+                        </div>
+                    }<a href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+                </div>
+                <div id="fade" class="black_overlay"></div>
             </div>
             
         </div>
