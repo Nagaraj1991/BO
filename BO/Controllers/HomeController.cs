@@ -118,6 +118,9 @@ namespace BO.Controllers
         {
             Country cc = new Country();
             cc.CountryModel = PopulateCountry();
+            List<City_Detail> cd = new List<City_Detail>();
+            cd = getcity();
+            cc.City_List = cd;
             return View(cc);
         }
 
@@ -131,6 +134,7 @@ namespace BO.Controllers
             return View(cl);
         }
 
+
         public List<Country_Detail> getcountry()
         {
             List<Country_Detail> objStudent = new List<Country_Detail>();
@@ -142,6 +146,21 @@ namespace BO.Controllers
             foreach (var item in _objuserdetail)
             {
                 objStudent.Add(new Country_Detail { country_id = item.country_id, country_name = item.country_name });
+            }
+            return objStudent;
+        }
+
+        public List<City_Detail> getcity()
+        {
+            List<City_Detail> objStudent = new List<City_Detail>();
+            /*Create instance of entity model*/
+            Restaurent_BOEntities1 objentity = new Restaurent_BOEntities1();
+            /*Getting data from database for user validation*/
+            var _objuserdetail = (from data in objentity.tbl_city
+                                  select data);
+            foreach (var item in _objuserdetail)
+            {
+                objStudent.Add(new City_Detail { city_id = item.city_id, country_name = item.country_name,city_name=item.city_name });
             }
             return objStudent;
         }
@@ -215,6 +234,7 @@ namespace BO.Controllers
                             }
                         }
                         con.Close();
+                        
                     }
                 }
                 
@@ -224,6 +244,7 @@ namespace BO.Controllers
 
             }
             return item;
+            
         }
 
         private static List<SelectListItem> PopulateCity()
